@@ -32,7 +32,11 @@ export default function WaitlistForm({ id }: { id?: string }) {
 
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
-        setError(data?.error || "No se pudo completar el registro. Intentá de nuevo.");
+        const msg =
+          typeof data?.error === "string"
+            ? data.error
+            : "No se pudo completar el registro. Intentá de nuevo.";
+        setError(msg);
         return;
       }
 
