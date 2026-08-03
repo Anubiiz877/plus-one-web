@@ -127,4 +127,11 @@
   html {
     @apply font-sans;
   }
+  /* Táctil: elimina el retardo de doble toque en iOS y el ruido visual al tap */
+  button,
+  a,
+  [role="button"] {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
 }
