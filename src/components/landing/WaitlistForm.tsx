@@ -157,12 +157,13 @@ export default function WaitlistForm({ id }: { id?: string }) {
 
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <div>
-              <label className="mb-1 block text-xs font-bold text-foreground">Teléfono / WhatsApp</label>
+              <label className="mb-1 block text-xs font-bold text-foreground">
+                Teléfono / WhatsApp <span className="font-semibold text-muted-foreground">(opcional)</span>
+              </label>
               <div className="relative">
                 <Phone className="absolute left-3.5 top-3 h-4 w-4 text-muted-foreground" />
                 <input
                   type="tel"
-                  required
                   value={telefono}
                   onChange={(e) => setTelefono(e.target.value)}
                   placeholder="+54 9 11..."

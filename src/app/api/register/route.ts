@@ -17,7 +17,7 @@ export async function POST(request: Request) {
     const telefono = typeof body.telefono === 'string' ? body.telefono : '';
     const edad = typeof body.edad === 'string' ? body.edad : '';
 
-    if (!role || !nombre || !apellido || !email || !telefono || !edad) {
+    if (!role || !nombre || !apellido || !email || !edad) {
       return NextResponse.json({ error: 'Faltan datos del registro' }, { status: 400 });
     }
 
