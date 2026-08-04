@@ -26,6 +26,7 @@ export default function Home() {
       </header>
 
       <main className="mx-auto max-w-5xl">
+        <PhotoCollage />
         <HeroSection />
         <AboutUs id="nosotros" />
         <HowItWorks />
@@ -142,7 +143,6 @@ export default function Home() {
         </div>
       </footer>
 
-      <PhotoCollage />
       <FaqFloating />
       <ScrollToTop />
     </div>

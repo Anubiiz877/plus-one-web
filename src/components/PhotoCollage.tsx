@@ -120,6 +120,41 @@ function PhotoColumn({
   );
 }
 
+function PhotoStrip() {
+  const photos = [...leftPhotos, ...rightPhotos];
+  const rotations = [...leftRotations, ...rightRotations];
+  const doubled = [...photos, ...photos];
+
+  return (
+    <div
+      aria-hidden
+      className="xl:hidden overflow-hidden py-2"
+      style={{
+        maskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+        WebkitMaskImage:
+          "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+      }}
+    >
+      <div className="flex w-max" style={{ animation: "marquee 45s linear infinite" }}>
+        {doubled.map((src, i) => (
+          <div
+            key={i}
+            className="shrink-0 pr-5"
+            style={{ transform: `rotate(${rotations[i % photos.length]}deg)` }}
+          >
+            <div className="w-28 rounded-xl bg-white/90 p-2 shadow-lg shadow-black/5 ring-1 ring-black/5 dark:bg-neutral-800/90 dark:ring-white/10">
+              <div className="aspect-[3/4] w-full overflow-hidden rounded-md">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={src} alt="" className="h-full w-full object-cover" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function PhotoCollage() {
   return (
     <>
@@ -154,6 +189,8 @@ export default function PhotoCollage() {
           direction="up"
         />
       </div>
+
+      <PhotoStrip />
     </>
   );
 }
