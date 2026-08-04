@@ -1,4 +1,5 @@
 import HeroSection from "@/components/landing/HeroSection";
+import AboutUs from "@/components/landing/AboutUs";
 import HowItWorks from "@/components/landing/HowItWorks";
 import WaitlistForm from "@/components/landing/WaitlistForm";
 import DonationSection from "@/components/landing/DonationSection";
@@ -26,6 +27,7 @@ export default function Home() {
 
       <main className="mx-auto max-w-5xl">
         <HeroSection />
+        <AboutUs id="nosotros" />
         <HowItWorks />
         <WaitlistForm id="registro" />
         <DonationSection id="donar" />
@@ -51,7 +53,7 @@ export default function Home() {
               </p>
               <ul className="space-y-2">
                 {[
-                  { label: "Sobre nosotros", href: "/#comunidad" },
+                  { label: "Sobre nosotros", href: "/#nosotros" },
                   { label: "Registrarse", href: "/#registro" },
                   { label: "Donar", href: "/#donar" },
                   { label: "Comunidad", href: "/#comunidad" },

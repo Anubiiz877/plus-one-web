@@ -238,7 +238,7 @@ export default function WaitlistForm({ id }: { id?: string }) {
             <span>{isLoading ? "Enviando..." : "Reservar Mi Lugar VIP"}</span>
           </button>
 
-          <p className="text-center text-[11px] leading-relaxed text-muted-foreground">
+          <p className="text-center text-xs leading-relaxed text-muted-foreground sm:text-sm">
             Plus One es un proyecto actualmente en desarrollo. Registrarte en la lista de espera
             no garantiza acceso inmediato a la plataforma ni una fecha determinada de lanzamiento.
           </p>
