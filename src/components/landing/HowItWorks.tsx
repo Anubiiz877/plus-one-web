@@ -64,7 +64,7 @@ export default function HowItWorks({ id }: { id?: string }) {
             <h3 className="text-base font-extrabold tracking-tight text-foreground">
               {paso.titulo}
             </h3>
-            <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{paso.texto}</p>
+            <p className="mt-1.5 text-base leading-relaxed text-muted-foreground">{paso.texto}</p>
           </article>
         ))}
       </div>
