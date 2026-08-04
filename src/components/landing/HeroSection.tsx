@@ -20,9 +20,9 @@ export default function HeroSection() {
 
       {/* Titular */}
       <h1 className="mx-auto mb-4 max-w-4xl text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl">
-        ¿Vas a un evento o viaje? <br className="hidden sm:inline" />
+        Nunca vuelvas a vivir una <br className="hidden sm:inline" />
         <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-800 bg-clip-text text-transparent">
-          Encuentra la compañía perfecta
+          experiencia solo.
         </span>
       </h1>
 

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft, ScrollText } from "lucide-react";
 import TermsContent from "@/components/landing/TermsContent";
+import Logo from "@/components/Logo";
 
 export const metadata = {
   title: "Términos y Condiciones • PLUS ONE",
@@ -12,10 +13,7 @@ export default function TerminosPage() {
     <div className="min-h-screen bg-background px-4 selection:bg-indigo-500 selection:text-white transition-colors duration-300">
       <header className="mx-auto flex max-w-5xl items-center justify-between py-6">
         <div className="flex items-center gap-2 text-xl font-black tracking-tight text-foreground">
-          <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-indigo-600 font-bold text-sm text-white shadow-md shadow-indigo-600/30">
-            +1
-          </div>
-          PLUS<span className="text-indigo-600">ONE</span>
+          <Logo className="h-20 w-auto" />
         </div>
 
         <Link

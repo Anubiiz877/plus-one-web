@@ -24,7 +24,7 @@ const STRIPE_URL = "#"; // Pega aquí tu enlace de Stripe (Payment Link)
 // Datos de la cuenta para transferencias (recibe pagos desde Mercado Pago y bancos):
 const UALA_ALIAS = "WeberRoger";
 const UALA_CBU = "3840200500000021605514"; // 22 dígitos
-const UALA_TITULAR = "WeberRoger"; // Nombre del titular de la cuenta
+const UALA_TITULAR = " Facundo Weber Roger"; // Nombre del titular de la cuenta
 
 // Pega aquí tus direcciones de billetera cripto (el QR se genera solo desde la dirección):
 const CRIPTO_REDES: Record<

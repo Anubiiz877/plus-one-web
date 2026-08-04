@@ -1,4 +1,5 @@
 import HeroSection from "@/components/landing/HeroSection";
+import HowItWorks from "@/components/landing/HowItWorks";
 import WaitlistForm from "@/components/landing/WaitlistForm";
 import DonationSection from "@/components/landing/DonationSection";
 import SocialProofCounter from "@/components/landing/SocialProofCounter";
@@ -7,15 +8,13 @@ import ThemeToggle from "@/components/ThemeToggle";
 import NavLinks from "@/components/NavLinks";
 import ScrollToTop from "@/components/ScrollToTop";
 import PhotoCollage from "@/components/PhotoCollage";
+import Logo from "@/components/Logo";
 export default function Home() {
   return (
     <div className="min-h-screen bg-background px-4 selection:bg-indigo-500 selection:text-white transition-colors duration-300">
       <header className="mx-auto flex max-w-5xl items-center justify-between py-6">
         <div className="flex items-center gap-2 text-xl font-black tracking-tight text-foreground">
-          <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-indigo-600 font-bold text-sm text-white shadow-md shadow-indigo-600/30">
-            +1
-          </div>
-          PLUS<span className="text-indigo-600">ONE</span>
+          <Logo className="h-20 w-auto" />
         </div>
 
         <div className="flex items-center gap-1">
@@ -27,6 +26,7 @@ export default function Home() {
 
       <main className="mx-auto max-w-5xl">
         <HeroSection />
+        <HowItWorks />
         <WaitlistForm id="registro" />
         <DonationSection id="donar" />
         <SocialProofCounter id="comunidad" />
@@ -36,11 +36,8 @@ export default function Home() {
         <div className="mx-auto max-w-5xl px-4">
           <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-4">
             <div>
-              <div className="flex items-center gap-2 text-xl font-black tracking-tight text-foreground">
-                <div className="flex h-7 w-7 items-center justify-center rounded-xl bg-indigo-600 text-xs font-bold text-white shadow-md shadow-indigo-600/30">
-                  +1
-                </div>
-                PLUS<span className="text-indigo-600">ONE</span>
+              <div className="flex items-center gap-2">
+                <Logo className="h-16 w-auto" />
               </div>
               <p className="mt-3 max-w-xs text-xs leading-relaxed text-muted-foreground">
                 La plataforma para conectar personas en eventos, viajes y experiencias únicas.

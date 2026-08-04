@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 
 const leftPhotos = [
   "/imagenes/photo1.jpeg",
-  "/imagenes/photo2.jpeg",
+  "/imagenes/photo2v2.jpeg",
   "/imagenes/photo3.jpeg",
   "/imagenes/photo4.jpeg",
   "/imagenes/photo5.jpeg",
