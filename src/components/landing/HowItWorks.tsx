@@ -53,7 +53,7 @@ export default function HowItWorks({ id }: { id?: string }) {
             key={paso.numero}
             className="group relative h-full rounded-3xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500 hover:shadow-xl hover:shadow-indigo-500/10"
           >
-            <span className="absolute right-5 top-4 text-4xl font-black text-muted/40 transition-colors group-hover:text-indigo-500/25">
+            <span className="absolute right-5 top-4 bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-800 bg-clip-text text-4xl font-black text-transparent opacity-80 transition-opacity group-hover:opacity-100">
               {paso.numero}
             </span>
             <div

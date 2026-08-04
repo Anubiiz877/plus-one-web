@@ -83,26 +83,28 @@ export default function WaitlistForm({ id }: { id?: string }) {
               <button
                 type="button"
                 onClick={() => setRole("CLIENT")}
-                className={`flex items-center justify-center gap-2 rounded-2xl py-3 text-xs font-bold border transition-all ${
+                aria-pressed={role === "CLIENT"}
+                className={`flex items-center justify-center gap-2 rounded-2xl py-3 text-xs font-bold border cursor-pointer transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.95] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 ${
                   role === "CLIENT"
-                    ? "border-indigo-600 bg-indigo-600 text-white shadow-md shadow-indigo-600/30"
-                    : "border-border bg-muted text-muted-foreground hover:bg-muted/80"
+                    ? "border-indigo-600 bg-indigo-600 text-white shadow-lg shadow-indigo-600/40 ring-2 ring-indigo-600 ring-offset-2"
+                    : "border-border bg-muted text-muted-foreground hover:border-indigo-400 hover:bg-indigo-50 hover:text-indigo-700 dark:hover:bg-indigo-500/10 dark:hover:text-indigo-300"
                 }`}
               >
-                <Search className="h-4 w-4" />
+                {role === "CLIENT" ? <CheckCircle2 className="h-4 w-4" /> : <Search className="h-4 w-4" />}
                 <span>Busco Acompañante</span>
               </button>
 
               <button
                 type="button"
                 onClick={() => setRole("COMPANION")}
-                className={`flex items-center justify-center gap-2 rounded-2xl py-3 text-xs font-bold border transition-all ${
+                aria-pressed={role === "COMPANION"}
+                className={`flex items-center justify-center gap-2 rounded-2xl py-3 text-xs font-bold border cursor-pointer transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.95] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 ${
                   role === "COMPANION"
-                    ? "border-indigo-600 bg-indigo-600 text-white shadow-md shadow-indigo-600/30"
-                    : "border-border bg-muted text-muted-foreground hover:bg-muted/80"
+                    ? "border-orange-500 bg-orange-500 text-white shadow-lg shadow-orange-500/40 ring-2 ring-orange-500 ring-offset-2"
+                    : "border-border bg-muted text-muted-foreground hover:border-orange-400 hover:bg-orange-50 hover:text-orange-600 dark:hover:bg-orange-500/10 dark:hover:text-orange-300"
                 }`}
               >
-                <UserCheck className="h-4 w-4" />
+                {role === "COMPANION" ? <CheckCircle2 className="h-4 w-4" /> : <UserCheck className="h-4 w-4" />}
                 <span>Quiero Acompañar</span>
               </button>
             </div>
