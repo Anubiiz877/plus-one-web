@@ -28,10 +28,10 @@ export default function Home() {
       <main className="mx-auto max-w-5xl">
         <PhotoCollage />
         <HeroSection />
-        <AboutUs id="nosotros" />
         <HowItWorks />
         <WaitlistForm id="registro" />
         <DonationSection id="donar" />
+        <AboutUs id="nosotros" />
         <SocialProofCounter id="comunidad" />
       </main>
 
