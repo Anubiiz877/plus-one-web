@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 
 const leftPhotos = [
   "/imagenes/photo1.jpeg",
@@ -105,12 +106,15 @@ function PhotoColumn({
             style={{ transform: `rotate(${doubledRotations[i]}deg)` }}
           >
             <div className="aspect-[3/4] w-full overflow-hidden rounded-md">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={src}
                 alt=""
+                width={256}
+                height={341}
+                sizes="144px"
                 className="h-full w-full object-cover"
                 loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
@@ -144,8 +148,16 @@ function PhotoStrip() {
           >
             <div className="w-28 rounded-xl bg-white/90 p-2 shadow-lg shadow-black/5 ring-1 ring-black/5 dark:bg-neutral-800/90 dark:ring-white/10">
               <div className="aspect-[3/4] w-full overflow-hidden rounded-md">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={src} alt="" className="h-full w-full object-cover" loading="lazy" />
+                <Image
+                  src={src}
+                  alt=""
+                  width={128}
+                  height={171}
+                  sizes="112px"
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             </div>
           </div>
