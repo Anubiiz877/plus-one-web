@@ -39,7 +39,7 @@ export default function Home() {
               <div className="flex items-center gap-2">
                 <Logo className="h-16 w-auto" />
               </div>
-              <p className="mt-3 max-w-xs text-xs leading-relaxed text-muted-foreground">
+              <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted-foreground">
                 La plataforma para conectar personas en eventos, viajes y experiencias únicas.
                 Proyecto actualmente en desarrollo.
               </p>

@@ -55,7 +55,7 @@ export default function WaitlistForm({ id }: { id?: string }) {
           Paso 2 de 4
         </span>
         <h2 className="mt-2 text-2xl font-black text-foreground sm:text-3xl">Únete a la Lista VIP</h2>
-        <p className="mt-1 text-xs text-muted-foreground sm:text-sm">
+        <p className="mt-1 text-sm text-muted-foreground sm:text-base">
           Asegura tu nombre de usuario antes del lanzamiento oficial
         </p>
       </div>
