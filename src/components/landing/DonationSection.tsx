@@ -18,7 +18,7 @@ import { cn } from "@/lib/utils";
 
 // ================= CONFIGURACIÓN =================
 // Pega aquí tus enlaces de donación:
-const PAYPAL_URL = "https://paypal.me/TU_USUARIO";
+const PAYPAL_URL = "https://paypal.me/FacundoWeberRoger";
 const STRIPE_URL = "#"; // Pega aquí tu enlace de Stripe (Payment Link)
 
 // Datos de la cuenta para transferencias (recibe pagos desde Mercado Pago y bancos):
