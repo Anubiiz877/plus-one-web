@@ -14,6 +14,7 @@ export default function WaitlistForm({ id }: { id?: string }) {
   const [isLoading, setIsLoading] = useState(false);
   const [termsAceptados, setTermsAceptados] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [honeypot, setHoneypot] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,7 +28,7 @@ export default function WaitlistForm({ id }: { id?: string }) {
       const res = await fetch("/api/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ role, nombre, apellido, email, telefono, edad, terms_accepted: true }),
+        body: JSON.stringify({ role, nombre, apellido, email, telefono, edad, terms_accepted: true, website: honeypot }),
       });
 
       if (!res.ok) {
@@ -76,6 +77,15 @@ export default function WaitlistForm({ id }: { id?: string }) {
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-4">
+          <input
+            type="text"
+            value={honeypot}
+            onChange={(e) => setHoneypot(e.target.value)}
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            className="absolute -left-[9999px] h-0 w-0 opacity-0"
+          />
           
           <div>
             <label className="mb-2 block text-xs font-extrabold text-foreground">¿Cuál es tu objetivo?</label>

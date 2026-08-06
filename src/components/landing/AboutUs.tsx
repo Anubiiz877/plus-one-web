@@ -10,6 +10,7 @@ type Miembro = {
   gradiente: string;
   resumen: string;
   bio: string;
+  vision: string;
 };
 
 const EQUIPO: Miembro[] = [
@@ -18,16 +19,22 @@ const EQUIPO: Miembro[] = [
     rol: "Fundador & CEO",
     iniciales: "FW",
     gradiente: "from-indigo-500 to-purple-600",
-    resumen: "Ideó Plus One para que nadie se quede afuera de una experiencia.",
-    bio: "Facundo creó Plus One después de ver a demasiadas personas perder oportunidades por no tener con quién compartirlas. Su visión: una plataforma donde cada salida sea segura, transparente y con la confianza de saber que el otro es real. Hoy lidera la estrategia, el producto y la comunidad.",
+    resumen:
+      "Ideó Plus One para transformar el tiempo y los conocimientos en oportunidades laborales reales, ayudando a que nadie viva una experiencia en soledad.",
+    bio: "Fundador y líder estratégico de Plus One. Con formación en Economía y Administración y trayectoria en gestión operativa, administrativa y atención al cliente, Facundo identificó cómo las plataformas de la economía colaborativa podían rediseñarse para poner el valor en las conexiones humanas. La idea surgió al analizar modelos de compañía on-demand en Asia y evolucionó durante años hasta convertirse en una plataforma amplia, accesible y adaptada a la cultura latinoamericana. Su visión no solo busca ayudar a que personas introvertidas o apasionadas se animen a vivir experiencias increíbles acompañadas, sino también crear una nueva fuente de ingresos flexibles para cualquier persona dispuesta a ofrecer su tiempo, su conversación o sus conocimientos (desde profesores y fotógrafos hasta gamers o deportistas).",
+    vision:
+      "Así como Uber revolucionó el transporte y Rappi las entregas, Plus One nace para descentralizar el trabajo del futuro: democratizar las oportunidades para que cualquier persona pueda monetizar su forma de ser, sus pasiones y su conocimiento ayudando a otros a disfrutar más la vida.",
   },
   {
-    nombre: "Martina López",
-    rol: "Cofundadora & CTO",
-    iniciales: "ML",
+    nombre: "Michael Marenco",
+    rol: "Cofundador & Programador",
+    iniciales: "MM",
     gradiente: "from-purple-600 to-fuchsia-500",
-    resumen: "Arquitecta de la plataforma y responsable de la seguridad.",
-    bio: "Martina diseña y construye toda la infraestructura técnica de Plus One. Es la responsable de que la verificación KYC, los pagos protegidos y el sistema de reputación funcionen con la máxima seguridad. Cree en el código simple, robusto y al servicio de las personas.",
+    resumen:
+      "Encargado de construir la arquitectura de Plus One y desarrollar software a medida que transforma ideas de negocio en plataformas funcionales.",
+    bio: "Desarrollador Full Stack enfocado en el desarrollo de plataformas web de alto rendimiento y soluciones de software a medida. Como responsable del desarrollo integral de Plus One, Michael se encargó de darle estructura, seguridad y agilidad al código, demostrando cómo una gran visión puede convertirse en una experiencia digital robusta y lista para escalar. Con una mentalidad práctica y orientada a resultados, Michael colabora con emprendedores para materializar sus conceptos en aplicaciones web y móviles funcionales. Se encarga de todo el ciclo de desarrollo —desde la interfaz visual hasta la lógica del servidor y la protección de datos— garantizando soluciones digitales limpias, modernas y adaptadas a las necesidades reales de cada cliente.",
+    vision:
+      "La excelencia en el desarrollo de software reside en la capacidad de resolver problemas complejos mediante soluciones elegantes, eficientes y desprovistas de fricción. Mi pasión radica en estructurar arquitecturas desde su concepción básica, transformándolas en infraestructura de código sólida y fiable que garantice la máxima confianza operativa desde su despliegue inicial.",
   },
   {
     nombre: "Julián Ríos",
@@ -36,6 +43,7 @@ const EQUIPO: Miembro[] = [
     gradiente: "from-rose-500 to-orange-400",
     resumen: "Conecta a la comunidad y cuida que cada encuentro sea respetuoso.",
     bio: "Julián es el puente entre la plataforma y las personas: modera, atiende reportes y da soporte en cada etapa. Su misión es que Plus One siga siendo un espacio respetuoso y seguro, donde calificaciones y reputación se ganen con buenas experiencias reales.",
+    vision: "",
   },
 ];
 
@@ -51,22 +59,25 @@ function TarjetaMiembro({ miembro }: { miembro: Miembro }) {
       }`}
     >
       <div
-        className={`mb-4 flex h-40 w-full items-center justify-center rounded-2xl bg-gradient-to-br ${miembro.gradiente} transition-transform duration-300 group-hover:scale-[1.02]`}
+        className={`mb-4 flex h-32 w-full items-center justify-center rounded-2xl bg-gradient-to-br ${miembro.gradiente} transition-transform duration-300 group-hover:scale-[1.02]`}
       >
-        <span className="text-4xl font-black tracking-tight text-white/90">
+        <span className="text-3xl font-black tracking-tight text-white/90">
           {miembro.iniciales}
         </span>
       </div>
 
       <h3 className="text-lg font-extrabold tracking-tight text-foreground">{miembro.nombre}</h3>
-      <p className="text-xs font-bold text-indigo-600 dark:text-indigo-400">{miembro.rol}</p>
+      <p className="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
+        {miembro.rol}
+      </p>
       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{miembro.resumen}</p>
 
       <button
         type="button"
         onClick={() => setAbierto((v) => !v)}
         aria-expanded={abierto}
-        className={`mt-4 flex w-full cursor-pointer items-center justify-center gap-1.5 rounded-2xl border py-2.5 text-xs font-bold transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.97] ${
+        aria-controls={`bio-${miembro.nombre}`}
+        className={`mt-4 flex w-full cursor-pointer items-center justify-center gap-1.5 rounded-2xl border py-2.5 text-xs font-bold transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 ${
           abierto
             ? "border-indigo-600 bg-indigo-600 text-white shadow-md shadow-indigo-600/30"
             : "border-indigo-200 bg-indigo-50 text-indigo-700 hover:border-indigo-400 dark:border-indigo-800/60 dark:bg-indigo-500/10 dark:text-indigo-300 dark:hover:border-indigo-600"
@@ -78,19 +89,37 @@ function TarjetaMiembro({ miembro }: { miembro: Miembro }) {
         />
       </button>
 
-      {abierto && (
-        <div className="mt-4 animate-fadeIn rounded-2xl border border-border bg-muted/50 p-4">
-          <Quote className="mb-2 h-4 w-4 text-indigo-500" />
-          <p className="text-xs leading-relaxed text-muted-foreground sm:text-sm">{miembro.bio}</p>
+      <div
+        id={`bio-${miembro.nombre}`}
+        className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
+          abierto ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+        }`}
+      >
+        <div className="overflow-hidden">
+          <div className="animate-fadeIn mt-4 border-t border-border pt-4">
+            <p className="mb-3 text-[11px] font-extrabold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">
+              Sobre {miembro.nombre.split(" ")[0]}
+            </p>
+            <p className="text-sm leading-relaxed text-muted-foreground">{miembro.bio}</p>
+
+            {miembro.vision && (
+              <div className="mt-4 flex gap-3 rounded-2xl bg-gradient-to-br from-indigo-500/10 to-purple-500/10 p-4">
+                <Quote className="mt-0.5 h-4 w-4 shrink-0 text-indigo-500" />
+                <p className="text-xs font-semibold leading-relaxed text-foreground sm:text-sm">
+                  &ldquo;{miembro.vision}&rdquo;
+                </p>
+              </div>
+            )}
+          </div>
         </div>
-      )}
+      </div>
     </article>
   );
 }
 
 export default function AboutUs({ id }: { id?: string }) {
   return (
-    <section id={id} className="mx-auto my-14 max-w-4xl px-4">
+    <section id={id} className="mx-auto my-14 max-w-5xl px-4">
       <div className="mb-10 text-center">
         <div className="mx-auto mb-3 flex w-fit items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-xs font-bold text-card-foreground shadow-sm">
           <Sparkles className="h-4 w-4 animate-pulse text-indigo-500" />

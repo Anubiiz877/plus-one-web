@@ -1,13 +1,45 @@
 import { NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
 
+const intentosPorIp = new Map<string, number[]>();
+const VENTANA_MS = 10 * 60 * 1000;
+const MAX_INTENTOS = 5;
+
+export function resetIntentos() {
+  intentosPorIp.clear();
+}
+
+function estaLimitado(ip: string): boolean {
+  const ahora = Date.now();
+  const historial = (intentosPorIp.get(ip) ?? []).filter((t) => ahora - t < VENTANA_MS);
+  if (historial.length >= MAX_INTENTOS) return true;
+  historial.push(ahora);
+  intentosPorIp.set(ip, historial);
+  if (intentosPorIp.size > 10000) intentosPorIp.clear();
+  return false;
+}
+
 export async function POST(request: Request) {
   try {
+    const ip =
+      request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "desconocida";
+
+    if (estaLimitado(ip)) {
+      return NextResponse.json(
+        { error: "Demasiados intentos. Intentá de nuevo en unos minutos." },
+        { status: 429 }
+      );
+    }
+
     let body: Record<string, unknown>;
     try {
       body = await request.json();
     } catch {
       return NextResponse.json({ error: 'Formato de petición inválido' }, { status: 400 });
+    }
+
+    if (typeof body.website === "string" && body.website.length > 0) {
+      return NextResponse.json({ success: true });
     }
 
     const role = typeof body.role === 'string' ? body.role : '';
@@ -19,6 +51,27 @@ export async function POST(request: Request) {
 
     if (!role || !nombre || !apellido || !email || !edad) {
       return NextResponse.json({ error: 'Faltan datos del registro' }, { status: 400 });
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json({ error: 'El correo electrónico no es válido' }, { status: 400 });
+    }
+
+    const edadNum = Number(edad);
+    if (!Number.isInteger(edadNum) || edadNum < 18 || edadNum > 99) {
+      return NextResponse.json(
+        { error: 'La edad debe estar entre 18 y 99 años' },
+        { status: 400 }
+      );
+    }
+
+    if (!["CLIENT", "COMPANION"].includes(role)) {
+      return NextResponse.json({ error: 'Rol inválido' }, { status: 400 });
+    }
+
+    if (nombre.length > 80 || apellido.length > 80) {
+      return NextResponse.json({ error: 'Nombre o apellido demasiado largo' }, { status: 400 });
     }
 
     if (body.terms_accepted !== true) {
@@ -60,7 +113,8 @@ export async function POST(request: Request) {
     }
 
     // Brevo: si falla el correo, el registro ya quedó guardado — no se debe perder
-    const MI_CORREO_VERIFICADO = "facundoweberroger@gmail.com";
+    const MI_CORREO_VERIFICADO =
+      process.env.ADMIN_EMAIL || "facundoweberroger@gmail.com";
     const rolTexto = role === "COMPANION" ? "Quiero Acompañar" : "Busco Acompañante";
 
     try {
