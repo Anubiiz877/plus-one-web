@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { UserPlus, Heart, Users, ScrollText, Menu, X } from "lucide-react";
+import { UserPlus, Heart, Users, ScrollText, Info, Menu, X } from "lucide-react";
 
 const links = [
+  { href: "#nosotros", label: "Sobre nosotros", icon: Info },
   { href: "#registro", label: "Registrarse", icon: UserPlus },
   { href: "#donar", label: "Donar", icon: Heart },
   { href: "#comunidad", label: "Comunidad", icon: Users },
