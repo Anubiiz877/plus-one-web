@@ -102,7 +102,7 @@ export default function Home() {
               <ul className="space-y-2">
                 <li>
                   <a
-                    href="mailto:facundoweberroger@gmail.com"
+                    href="mailto:FacundoWeberRoger@gmail.com?subject=Consulta%20sobre%20Plus%20One"
                     className="text-xs font-semibold text-muted-foreground transition-colors hover:text-indigo-600 dark:hover:text-indigo-400"
                   >
                     Contacto
@@ -110,7 +110,9 @@ export default function Home() {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="https://www.instagram.com/paginaoficialplusone/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-xs font-semibold text-muted-foreground transition-colors hover:text-indigo-600 dark:hover:text-indigo-400"
                   >
                     Instagram
@@ -118,18 +120,12 @@ export default function Home() {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="https://www.tiktok.com/@paginaoficialplusone"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-xs font-semibold text-muted-foreground transition-colors hover:text-indigo-600 dark:hover:text-indigo-400"
                   >
                     TikTok
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-xs font-semibold text-muted-foreground transition-colors hover:text-indigo-600 dark:hover:text-indigo-400"
-                  >
-                    X (Twitter)
                   </a>
                 </li>
               </ul>
