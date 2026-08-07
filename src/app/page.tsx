@@ -102,7 +102,9 @@ export default function Home() {
               <ul className="space-y-2">
                 <li>
                   <a
-                    href="mailto:FacundoWeberRoger@gmail.com?subject=Consulta%20sobre%20Plus%20One"
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=FacundoWeberRoger@gmail.com&su=Consulta%20sobre%20Plus%20One"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-xs font-semibold text-muted-foreground transition-colors hover:text-indigo-600 dark:hover:text-indigo-400"
                   >
                     Contacto
