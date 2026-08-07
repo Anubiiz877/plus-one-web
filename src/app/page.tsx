@@ -15,7 +15,7 @@ export default function Home() {
     <div className="min-h-screen bg-background px-4 selection:bg-indigo-500 selection:text-white transition-colors duration-300">
       <header className="mx-auto flex max-w-5xl items-center justify-between py-6">
         <div className="flex items-center gap-2 text-xl font-black tracking-tight text-foreground">
-          <Logo className="h-20 w-auto" />
+          <Logo className="h-20" />
         </div>
 
         <div className="flex items-center gap-1">
@@ -40,7 +40,7 @@ export default function Home() {
           <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-4">
             <div>
               <div className="flex items-center gap-2">
-                <Logo className="h-16 w-auto" />
+                <Logo className="h-16" />
               </div>
               <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted-foreground">
                 La plataforma para conectar personas en eventos, viajes y experiencias únicas.
