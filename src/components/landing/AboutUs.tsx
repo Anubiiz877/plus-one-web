@@ -43,7 +43,7 @@ const EQUIPO: Miembro[] = [
     gradiente: "from-rose-500 to-orange-400",
     resumen:
       " Encargada del diseño UI/UX en Plus One, transformando el concepto de la plataforma en una experiencia visual intuitiva, atractiva y pensada para la comodidad del usuario.",
-    bio: "Sofía es la diseñadora de Plus One: su función fue  atractiva, intuitiva y cómoda para el público. Sofia Se encargó de cuidar la estética, los colores, la distribución de los elementos y la decoración, buscando que la plataforma resulte llamativa y fácil de usar sin perder claridad. Además, analiza posibles problemas de usabilidad y propone mejoras para que navegar por la página, encontrar un plan y contactar con un acompañante sea lo más sencillo posible. Y, por supuesto, intenta que en el camino no nos aburramos.",
+    bio: "Sofía es la diseñadora de Plus One: su función fue crear una experiencia atractiva, intuitiva y cómoda para el público. Sofía se encargó de cuidar la estética, los colores, la distribución de los elementos y la decoración, buscando que la plataforma resulte llamativa y fácil de usar sin perder claridad. Además, analiza posibles problemas de usabilidad y propone mejoras para que navegar por la página, encontrar un plan y contactar con un acompañante sea lo más sencillo posible. Y, por supuesto, intenta que en el camino no nos aburramos.",
     vision: "",
   },
 ];
