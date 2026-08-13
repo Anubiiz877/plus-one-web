@@ -36,13 +36,14 @@ const EQUIPO: Miembro[] = [
     vision:
       "La excelencia en el desarrollo de software reside en la capacidad de resolver problemas complejos mediante soluciones elegantes, eficientes y desprovistas de fricción. Mi pasión radica en estructurar arquitecturas desde su concepción básica, transformándolas en infraestructura de código sólida y fiable que garantice la máxima confianza operativa desde su despliegue inicial.",
   },
-  {
-    nombre: "Sofia Modesti",
-    rol: "Head de Comunidad",
-    iniciales: "SM",
+{
+    nombre: "Sofía",
+    rol: "Cofundadora & Diseñadora",
+    iniciales: "SO",
     gradiente: "from-rose-500 to-orange-400",
-    resumen: "Conecta a la comunidad y cuida que cada encuentro sea respetuoso.",
-    bio: "Julián es el puente entre la plataforma y las personas: modera, atiende reportes y da soporte en cada etapa. Su misión es que Plus One siga siendo un espacio respetuoso y seguro, donde calificaciones y reputación se ganen con buenas experiencias reales.",
+    resumen:
+      "Diseñadora de Plus One: crea una página web atractiva, intuitiva y cómoda, cuidando la estética, los colores y la distribución para que la plataforma sea llamativa y fácil de usar.",
+    bio: "Como diseñadora de Plus One, su función es crear una página web atractiva, intuitiva y cómoda para el público. Se encarga de cuidar la estética, los colores, la distribución de los elementos y la decoración, buscando que la plataforma resulte llamativa y fácil de usar sin perder claridad. Además, analiza posibles problemas de usabilidad y propone mejoras para que navegar por la página, encontrar un plan y contactar con un acompañante sea lo más sencillo posible. Y, por supuesto, intentando que no nos aburramos en el proceso.",
     vision: "",
   },
 ];
