@@ -42,8 +42,8 @@ const EQUIPO: Miembro[] = [
     iniciales: "SO",
     gradiente: "from-rose-500 to-orange-400",
     resumen:
-      "Diseñadora de Plus One: crea una página web atractiva, intuitiva y cómoda, cuidando la estética, los colores y la distribución para que la plataforma sea llamativa y fácil de usar.",
-    bio: "Como diseñadora de Plus One, su función es crear una página web atractiva, intuitiva y cómoda para el público. Se encarga de cuidar la estética, los colores, la distribución de los elementos y la decoración, buscando que la plataforma resulte llamativa y fácil de usar sin perder claridad. Además, analiza posibles problemas de usabilidad y propone mejoras para que navegar por la página, encontrar un plan y contactar con un acompañante sea lo más sencillo posible. Y, por supuesto, intentando que no nos aburramos en el proceso.",
+      "Sofía es la diseñadora de Plus One: Sofia diseñó una página web atractiva, intuitiva y cómoda, cuidando la estética, los colores y la distribución para que la plataforma sea llamativa y fácil de usar sin perder claridad.",
+    bio: "Sofía es la diseñadora de Plus One: su función es crear una página web atractiva, intuitiva y cómoda para el público. Sofia Se encargó de cuidar la estética, los colores, la distribución de los elementos y la decoración, buscando que la plataforma resulte llamativa y fácil de usar sin perder claridad. Además, analiza posibles problemas de usabilidad y propone mejoras para que navegar por la página, encontrar un plan y contactar con un acompañante sea lo más sencillo posible. Y, por supuesto, intenta que en el camino no nos aburramos.",
     vision: "",
   },
 ];
