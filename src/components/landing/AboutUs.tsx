@@ -34,7 +34,7 @@ const EQUIPO: Miembro[] = [
       "Encargado de construir la arquitectura de Plus One y desarrollar software a medida que transforma ideas de negocio en plataformas funcionales.",
     bio: "Desarrollador Full Stack enfocado en el desarrollo de plataformas web de alto rendimiento y soluciones de software a medida. Como responsable del desarrollo integral de Plus One, Michael se encargó de darle estructura, seguridad y agilidad al código, demostrando cómo una gran visión puede convertirse en una experiencia digital robusta y lista para escalar. Con una mentalidad práctica y orientada a resultados, Michael colabora con emprendedores para materializar sus conceptos en aplicaciones web y móviles funcionales. Se encarga de todo el ciclo de desarrollo —desde la interfaz visual hasta la lógica del servidor y la protección de datos— garantizando soluciones digitales limpias, modernas y adaptadas a las necesidades reales de cada cliente.",
     vision:
-      "La excelencia en el desarrollo de software reside en la capacidad de resolver problemas complejos mediante soluciones elegantes, eficientes y desprovistas de fricción. Mi pasión radica en estructurar arquitecturas desde su concepción básica, transformándolas en infraestructura de código sólida y fiable que garantice la máxima confianza operativa desde su despliegue inicial.",
+      "La excelencia en el desarrollo de software reside en resolver problemas complejos con soluciones elegantes y sin fricción. Mi visión para Plus One es transformar esa arquitectura sólida en un puente invisible; una infraestructura tan fiable y segura que la tecnología pase a un segundo plano, permitiendo que la verdadera conexión humana sea la protagonista de cada experiencia.",
   },
 {
     nombre: "Sofía",
