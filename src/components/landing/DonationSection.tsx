@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState, type ComponentType } from "react";
 import {
+  ArrowRightLeft,
   Bitcoin,
   Check,
   Copy,
@@ -12,14 +13,15 @@ import {
   QrCode,
   ShieldCheck,
   Target,
-  Zap,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 // ================= CONFIGURACIÓN =================
 // Pega aquí tus enlaces de donación:
 const PAYPAL_URL = "https://paypal.me/FacundoWeberRoger";
-const STRIPE_URL = "#"; // Pega aquí tu enlace de Stripe (Payment Link)
+
+// URL de Mercado Pago Checkout Pro (creala en tu cuenta de MP > Checkout Pro > Preferencias)
+const MERCADO_PAGO_CHECKOUT_URL = "#"; // Pega aquí tu URL de Checkout Pro
 
 // Datos de la cuenta para transferencias (recibe pagos desde Mercado Pago y bancos):
 const UALA_ALIAS = "WeberRoger";
@@ -44,14 +46,14 @@ const CRIPTO_REDES: Record<
 };
 // =================================================
 
-type Metodo = "paypal" | "cripto" | "mercadopago" | "stripe";
+type Metodo = "paypal" | "cripto" | "transferencia-tarjeta";
+type SubMetodo = "transferencia" | "tarjeta";
 type CriptoRed = "trx" | "bsc";
 
 const METODOS: { id: Metodo; nombre: string; icono: ComponentType<{ className?: string }>; color: string }[] = [
   { id: "paypal", nombre: "PayPal", icono: CreditCard, color: "text-indigo-600 dark:text-indigo-400" },
   { id: "cripto", nombre: "Criptomoneda", icono: Bitcoin, color: "text-amber-500" },
-  { id: "mercadopago", nombre: "Mercado Pago", icono: Handshake, color: "text-sky-600 dark:text-sky-400" },
-  { id: "stripe", nombre: "Stripe", icono: Zap, color: "text-purple-600 dark:text-purple-400" },
+  { id: "transferencia-tarjeta", nombre: "Mercado Pago", icono: Handshake, color: "text-sky-600 dark:text-sky-400" },
 ];
 
 function PanelTransferencia({
@@ -129,11 +131,12 @@ function PanelTransferencia({
 }
 
 export default function DonationSection({ id }: { id?: string }) {
-  const currentRaised = 350; // Ejemplo de dinero acumulado
-  const goal = 2500; // Meta total
+  const currentRaised = 350;
+  const goal = 2500;
   const percentage = Math.min(Math.round((currentRaised / goal) * 100), 100);
 
   const [metodo, setMetodo] = useState<Metodo | null>(null);
+  const [subMetodo, setSubMetodo] = useState<SubMetodo | null>(null);
   const [red, setRed] = useState<CriptoRed | null>(null);
   const [copiado, setCopiado] = useState<string | null>(null);
 
@@ -143,12 +146,12 @@ export default function DonationSection({ id }: { id?: string }) {
       setCopiado(clave);
       setTimeout(() => setCopiado(null), 2000);
     } catch {
-      // Portapapeles no disponible; el usuario puede copiar manualmente
     }
   }
 
   function seleccionarMetodo(m: Metodo) {
     setMetodo(m);
+    setSubMetodo(null);
     setRed(null);
     setCopiado(null);
   }
@@ -194,7 +197,7 @@ export default function DonationSection({ id }: { id?: string }) {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
         {METODOS.map((m) => {
           const Icono = m.icono;
           const activo = metodo === m.id;
@@ -217,6 +220,37 @@ export default function DonationSection({ id }: { id?: string }) {
         })}
       </div>
 
+      {metodo === "transferencia-tarjeta" && (
+        <div className="mt-4 grid grid-cols-2 gap-3">
+          <button
+            type="button"
+            onClick={() => setSubMetodo("transferencia")}
+            className={cn(
+              "flex flex-col items-center justify-center gap-1.5 rounded-2xl border px-3 py-3.5 text-xs font-bold transition active:scale-95",
+              subMetodo === "transferencia"
+                ? "border-sky-600 bg-sky-600/10 shadow-sm dark:border-sky-500 dark:bg-sky-500/10"
+                : "border-border bg-card text-foreground shadow-sm hover:border-sky-600 hover:text-sky-600 dark:hover:border-sky-500 dark:hover:text-sky-400"
+            )}
+          >
+            <ArrowRightLeft className="h-5 w-5 text-sky-600 dark:text-sky-400" />
+            <span>Transferencia</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setSubMetodo("tarjeta")}
+            className={cn(
+              "flex flex-col items-center justify-center gap-1.5 rounded-2xl border px-3 py-3.5 text-xs font-bold transition active:scale-95",
+              subMetodo === "tarjeta"
+                ? "border-sky-600 bg-sky-600/10 shadow-sm dark:border-sky-500 dark:bg-sky-500/10"
+                : "border-border bg-card text-foreground shadow-sm hover:border-sky-600 hover:text-sky-600 dark:hover:border-sky-500 dark:hover:text-sky-400"
+            )}
+          >
+            <CreditCard className="h-5 w-5 text-sky-600 dark:text-sky-400" />
+            <span>Tarjeta</span>
+          </button>
+        </div>
+      )}
+
       {metodo === "paypal" && (
         <div className="mt-4 rounded-2xl border border-border bg-card p-5 text-center">
           <CreditCard className="mx-auto h-6 w-6 text-indigo-600 dark:text-indigo-400" />
@@ -235,32 +269,32 @@ export default function DonationSection({ id }: { id?: string }) {
         </div>
       )}
 
-      {metodo === "mercadopago" && (
+      {subMetodo === "transferencia" && (
         <PanelTransferencia
           Icono={Handshake}
           colorIcono="text-sky-600 dark:text-sky-400"
-          titulo="Donar desde cualquier billetera digital"
-          descripcion="Pagá desde tu app de Mercado Pago: las billeteras digitales están conectadas, por eso la transferencia llega directo a nuestra cuenta, sin costo.( opcion solo para Argentina)"
+          titulo="Donar por transferencia bancaria"
+          descripcion="Usá tu app de Mercado Pago o banco: la transferencia llega directo a nuestra cuenta, sin costo. (Solo Argentina)"
           copiado={copiado}
           onCopiar={copiar}
         />
       )}
 
-      {metodo === "stripe" && (
+      {subMetodo === "tarjeta" && (
         <div className="mt-4 rounded-2xl border border-border bg-card p-5 text-center">
-          <Zap className="mx-auto h-6 w-6 text-purple-600 dark:text-purple-400" />
-          <p className="mt-2 text-sm font-bold text-foreground">Donar vía Stripe</p>
+          <CreditCard className="mx-auto h-6 w-6 text-sky-600 dark:text-sky-400" />
+          <p className="mt-2 text-sm font-bold text-foreground">Donar con tarjeta (Mercado Pago)</p>
           <p className="mt-1 text-xs text-muted-foreground">
-            Acepta pagos con tarjeta de crédito y débito de forma internacional.
+            Te redirigiremos a Mercado Pago Checkout Pro para pagar con tarjeta de crédito o débito.
           </p>
           <a
-            href={STRIPE_URL}
+            href={MERCADO_PAGO_CHECKOUT_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 inline-flex items-center gap-2 rounded-2xl bg-primary px-6 py-3 text-xs font-bold text-primary-foreground shadow-md transition hover:bg-primary/90 active:scale-95"
+            className="mt-4 inline-flex items-center gap-2 rounded-2xl bg-sky-600 px-6 py-3 text-xs font-bold text-white shadow-md transition hover:bg-sky-700 active:scale-95"
           >
             <CreditCard className="h-4 w-4" />
-            Continuar con Stripe
+            Pagar con tarjeta en Mercado Pago
           </a>
         </div>
       )}
